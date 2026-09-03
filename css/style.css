@@ -245,35 +245,12 @@ p { margin: 0; }
 }
 
 .hero-visual {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.hero-blob {
-  position: absolute;
-  width: 420px;
-  height: 420px;
-  max-width: 90%;
-  border-radius: 46% 54% 62% 38% / 45% 40% 60% 55%;
-  background: linear-gradient(150deg, var(--cream-alt), var(--terracotta) 140%);
-  opacity: 0.35;
-  filter: blur(2px);
-  z-index: 0;
-}
 .hero-logo {
-  position: relative;
-  z-index: 1;
-  width: min(360px, 78%);
-}
-.hero-leaf {
-  position: absolute;
-  right: -20px;
-  top: -10px;
-  width: 130px;
-  height: auto;
-  opacity: 0.55;
-  z-index: 0;
+  width: min(400px, 85%);
 }
 
 /* ---------- Differentials ---------- */
@@ -356,22 +333,21 @@ p { margin: 0; }
 .about { padding: 5.5rem 0; }
 .about-inner {
   display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
+  grid-template-columns: 1fr 1fr;
   gap: 3.4rem;
   align-items: center;
 }
-.about-photo-placeholder {
-  aspect-ratio: 4 / 5;
-  background: var(--cream-alt);
-  border: 1px dashed var(--gold);
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--ink-soft);
-  font-size: 0.9rem;
-  text-align: center;
-  padding: 1.5rem;
+.about-photo img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 24px 48px -20px rgba(58, 43, 38, 0.35);
+}
+.about-credential {
+  color: var(--terracotta);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  margin-bottom: 1.3rem !important;
+  font-size: 0.95rem;
 }
 .about-copy p { margin-bottom: 1.1rem; color: var(--ink-soft); }
 .about-copy p:last-of-type { margin-bottom: 0; }
@@ -431,7 +407,7 @@ p { margin: 0; }
   .differentials-grid { grid-template-columns: repeat(2, 1fr); }
   .procedures-grid { grid-template-columns: 1fr; }
   .about-inner { grid-template-columns: 1fr; }
-  .about-photo { max-width: 320px; margin: 0 auto; }
+  .about-photo { max-width: 480px; margin: 0 auto; }
 }
 
 @media (max-width: 720px) {
