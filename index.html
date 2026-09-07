@@ -375,10 +375,33 @@
       const card = carousel.querySelector('.result-card');
       const gap = 24;
       const amount = card ? (card.offsetWidth + gap) * dir : 300 * dir;
-      carousel.scrollBy({ left: amount, behavior: 'smooth' });
+      const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+      const next = carousel.scrollLeft + amount;
+      if (next > maxScroll - 5) {
+        carousel.scrollTo({ left: 0, behavior: 'smooth' });
+      } else if (next < 5 && dir < 0) {
+        carousel.scrollTo({ left: maxScroll, behavior: 'smooth' });
+      } else {
+        carousel.scrollBy({ left: amount, behavior: 'smooth' });
+      }
     };
-    document.querySelector('.carousel-prev').addEventListener('click', () => scrollByCard(-1));
-    document.querySelector('.carousel-next').addEventListener('click', () => scrollByCard(1));
+    document.querySelector('.carousel-prev').addEventListener('click', () => { scrollByCard(-1); restartAutoplay(); });
+    document.querySelector('.carousel-next').addEventListener('click', () => { scrollByCard(1); restartAutoplay(); });
+
+    let autoplayTimer;
+    const AUTOPLAY_DELAY = 4000;
+    const startAutoplay = () => {
+      autoplayTimer = setInterval(() => scrollByCard(1), AUTOPLAY_DELAY);
+    };
+    const stopAutoplay = () => clearInterval(autoplayTimer);
+    const restartAutoplay = () => { stopAutoplay(); startAutoplay(); };
+
+    carousel.addEventListener('mouseenter', stopAutoplay);
+    carousel.addEventListener('mouseleave', startAutoplay);
+    carousel.addEventListener('touchstart', stopAutoplay, { passive: true });
+    carousel.addEventListener('touchend', () => setTimeout(startAutoplay, 2000), { passive: true });
+
+    startAutoplay();
   }
 </script>
 
