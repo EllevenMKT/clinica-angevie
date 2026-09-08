@@ -445,6 +445,16 @@ p { margin: 0; }
   .carousel-btn { display: none; }
 }
 
+/* ---------- Testimonials (Google Reviews widget) ---------- */
+.testimonials {
+  background: var(--cream-alt);
+  padding: 5.5rem 0;
+}
+.testimonials-widget {
+  max-width: 900px;
+  margin: 3rem auto 0;
+}
+
 /* ---------- About ---------- */
 .about { padding: 5.5rem 0; }
 .about-inner {
