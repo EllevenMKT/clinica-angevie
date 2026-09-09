@@ -269,31 +269,9 @@ p { margin: 0; }
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem 0;
 }
-.hero-photo-wrap {
-  position: relative;
-  width: min(420px, 88%);
-}
-.hero-photo {
-  width: 100%;
-  aspect-ratio: 4 / 4.6;
-  object-fit: cover;
-  border-radius: 63% 37% 54% 46% / 43% 65% 35% 57%;
-  box-shadow: 0 30px 60px -20px rgba(58, 43, 38, 0.4);
-}
-.hero-signature {
-  position: absolute;
-  bottom: -6px;
-  right: -18px;
-  font-family: 'Alex Brush', cursive;
-  font-size: 2.3rem;
-  color: var(--terracotta-deep);
-  background: var(--cream);
-  padding: 0.3rem 1.2rem 0.5rem;
-  border-radius: 999px;
-  box-shadow: 0 14px 30px -12px rgba(58, 43, 38, 0.35);
-  transform: rotate(-3deg);
+.hero-logo {
+  width: min(480px, 92%);
 }
 
 /* ---------- Differentials ---------- */
@@ -600,11 +578,4 @@ p { margin: 0; }
   .hero-actions { flex-direction: column; align-items: stretch; }
   .hero-actions .btn { justify-content: center; }
   .differentials-grid { grid-template-columns: 1fr; }
-  .hero-signature {
-    font-size: 1.5rem;
-    padding: 0.3rem 1rem 0.4rem;
-    bottom: -10px;
-    right: 0;
-    white-space: nowrap;
-  }
 }
