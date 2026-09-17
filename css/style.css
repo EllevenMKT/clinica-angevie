@@ -396,31 +396,65 @@ p { margin: 0; }
   overflow: hidden;
   box-shadow: 0 20px 40px -24px rgba(58, 43, 38, 0.3);
 }
-.result-images {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-.result-img {
+.compare-slider {
   position: relative;
   aspect-ratio: 4 / 4;
   overflow: hidden;
+  touch-action: pan-y;
+  cursor: ew-resize;
+  user-select: none;
 }
-.result-img img {
+.compare-img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  pointer-events: none;
+  -webkit-user-drag: none;
 }
-.result-tag {
+.compare-before {
+  clip-path: inset(0 50% 0 0);
+}
+.compare-tag {
   position: absolute;
-  bottom: 0.6rem;
-  left: 0.6rem;
+  top: 0.7rem;
+  z-index: 2;
   background: rgba(58, 43, 38, 0.72);
   color: var(--white);
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   padding: 0.3rem 0.7rem;
   border-radius: 999px;
+  pointer-events: none;
+}
+.compare-tag-before { left: 0.7rem; }
+.compare-tag-after { right: 0.7rem; }
+.compare-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 3px;
+  background: var(--white);
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.15);
+}
+.compare-handle svg {
+  position: relative;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  background: var(--white);
+  color: var(--terracotta-deep);
+  border-radius: 50%;
+  padding: 9px;
+  box-shadow: 0 6px 16px -6px rgba(0,0,0,0.5);
 }
 .result-caption {
   padding: 1.1rem 1.3rem;
