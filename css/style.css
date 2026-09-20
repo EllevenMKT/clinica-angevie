@@ -12,6 +12,7 @@
   --gold:         #C9A06D;
   --ink:          #3A2B26;
   --ink-soft:     #6B564E;
+  --ink-deep:     #241A17;
 
   --font-display: 'Cormorant Garamond', serif;
   --font-body: 'Jost', sans-serif;
@@ -286,30 +287,46 @@ p { margin: 0; }
 }
 
 /* ---------- Differentials ---------- */
-.differentials { padding: 1rem 0 5rem; }
-.differentials-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2.2rem;
+.differentials {
+  background: var(--ink-deep);
+  padding: 5.5rem 0 6rem;
+  margin: 3rem 0;
+}
+.diff-eyebrow {
+  color: var(--gold);
+  margin-bottom: 3rem;
+}
+.diff-contrast-list {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.diff-contrast {
   text-align: center;
+  padding: 2.6rem 0;
+  border-bottom: 1px solid rgba(201, 160, 109, 0.22);
 }
-.differential {
-  padding: 2rem 1.2rem;
-  border-top: 1px solid rgba(150, 84, 63, 0.18);
+.diff-contrast:last-child { border-bottom: none; }
+.diff-neg {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  color: rgba(248, 243, 238, 0.5);
+  margin-bottom: 0.9rem;
 }
-.differential-icon {
-  width: 40px;
-  height: 40px;
-  color: var(--terracotta);
-  margin: 0 auto 1.1rem;
+.diff-neg em {
+  font-style: normal;
+  color: rgba(248, 243, 238, 0.72);
 }
-.differential h3 {
-  font-size: 1.2rem;
-  margin-bottom: 0.6rem;
+.diff-pos {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+  font-weight: 500;
+  color: var(--cream);
+  line-height: 1.35;
 }
-.differential p {
-  font-size: 0.92rem;
-  color: var(--ink-soft);
+.diff-pos em {
+  font-style: italic;
+  color: var(--gold);
 }
 
 /* ---------- Procedures ---------- */
@@ -601,7 +618,6 @@ p { margin: 0; }
 @media (max-width: 960px) {
   .hero-inner { grid-template-columns: 1fr; }
   .hero-visual { order: -1; max-width: 320px; margin: 0 auto; }
-  .differentials-grid { grid-template-columns: repeat(2, 1fr); }
   .procedures-grid { grid-template-columns: 1fr; }
   .about-inner { grid-template-columns: 1fr; }
   .about-photo { max-width: 480px; margin: 0 auto; }
@@ -623,15 +639,14 @@ p { margin: 0; }
   .main-nav.is-open { display: flex; }
   .nav-toggle { display: flex; }
   .header-actions .btn-small { display: none; }
-  .differentials-grid { grid-template-columns: 1fr 1fr; gap: 1.4rem; }
-  .differential { padding: 1.2rem 0.6rem; }
+  .differentials { padding: 4rem 0 4.5rem; }
+  .diff-contrast { padding: 2rem 0; }
 }
 
 @media (max-width: 480px) {
   .hero { padding: 3rem 0 3.5rem; }
   .hero-actions { flex-direction: column; align-items: stretch; }
   .hero-actions .btn { justify-content: center; }
-  .differentials-grid { grid-template-columns: 1fr; }
 }
 
 /* ---------- Botão flutuante WhatsApp ---------- */
@@ -650,6 +665,14 @@ p { margin: 0; }
   box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.4);
   z-index: 90;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  animation: whatsapp-heartbeat 3s ease-in-out infinite;
+}
+@keyframes whatsapp-heartbeat {
+  0%, 100% { transform: scale(1); }
+  14% { transform: scale(1.14); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.14); }
+  70% { transform: scale(1); }
 }
 .whatsapp-float::before {
   content: "";
@@ -669,6 +692,7 @@ p { margin: 0; }
   height: 30px;
 }
 .whatsapp-float:hover {
+  animation-play-state: paused;
   transform: scale(1.08);
   box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.45);
 }
@@ -700,8 +724,8 @@ p { margin: 0; }
   opacity: 1;
   transform: translateY(0);
 }
-.differentials-grid .reveal:nth-child(2) { transition-delay: 0.08s; }
-.differentials-grid .reveal:nth-child(3) { transition-delay: 0.16s; }
-.differentials-grid .reveal:nth-child(4) { transition-delay: 0.24s; }
+.diff-contrast-list .reveal:nth-child(2) { transition-delay: 0.08s; }
+.diff-contrast-list .reveal:nth-child(3) { transition-delay: 0.16s; }
+.diff-contrast-list .reveal:nth-child(4) { transition-delay: 0.24s; }
 .procedures-grid .reveal:nth-child(2) { transition-delay: 0.08s; }
 .procedures-grid .reveal:nth-child(3) { transition-delay: 0.16s; }
