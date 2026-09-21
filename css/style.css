@@ -353,13 +353,13 @@ p { margin: 0; }
 }
 .proc-feature {
   display: flex;
-  align-items: center;
-  gap: 1.4rem;
+  align-items: flex-start;
+  gap: 1.2rem;
 }
 .proc-feature-media {
-  flex: 0 0 130px;
-  width: 130px;
-  height: 162px;
+  flex: 0 0 96px;
+  width: 96px;
+  height: 120px;
   border-radius: 6px;
   overflow: hidden;
 }
@@ -682,8 +682,9 @@ p { margin: 0; }
   .header-actions .btn-small { display: none; }
   .differentials { padding: 4rem 0 4.5rem; }
   .diff-contrast { padding: 2rem 0; }
-  .proc-feature { flex-direction: column; align-items: flex-start; text-align: left; }
-  .proc-feature-media { width: 100%; height: auto; aspect-ratio: 4 / 3; flex: none; }
+  .proc-feature-media { flex: 0 0 76px; width: 76px; height: 95px; }
+  .proc-feature-copy h3 { font-size: 1.1rem; }
+  .proc-feature-copy p { font-size: 0.85rem; }
 }
 
 @media (max-width: 480px) {
