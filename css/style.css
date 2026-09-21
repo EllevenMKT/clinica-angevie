@@ -345,39 +345,68 @@ p { margin: 0; }
   background: var(--cream-alt);
   padding: 5.5rem 0;
 }
-.procedures-grid {
+.proc-features {
   margin-top: 3.2rem;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2.6rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem 2.6rem;
 }
-.procedure-column {
-  background: var(--white);
-  padding: 2.4rem 2rem;
-  border-radius: 4px;
-  border-bottom: 3px solid var(--terracotta);
+.proc-feature {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
 }
-.procedure-column h3 {
-  font-size: 1.4rem;
-  margin-bottom: 1.3rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(150, 84, 63, 0.16);
+.proc-feature-media {
+  flex: 0 0 130px;
+  width: 130px;
+  height: 162px;
+  border-radius: 6px;
+  overflow: hidden;
 }
-.procedure-column li {
+.proc-feature-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.proc-feature-copy h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+.proc-feature-copy p {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+.procedures-more {
+  margin-top: 3.6rem;
+  padding-top: 2.8rem;
+  border-top: 1px solid rgba(150, 84, 63, 0.16);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+.procedures-more-col h4 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: var(--terracotta-deep);
+  font-size: 1.05rem;
+  margin-bottom: 0.9rem;
+}
+.procedures-more-col ul { columns: 1; }
+.procedures-more-col li {
   position: relative;
-  padding-left: 1.3rem;
-  margin-bottom: 0.85rem;
-  font-size: 0.98rem;
-  color: var(--ink);
+  padding-left: 1.2rem;
+  margin-bottom: 0.55rem;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
 }
-.procedure-column li:last-child { margin-bottom: 0; }
-.procedure-column li::before {
+.procedures-more-col li::before {
   content: "✦";
   position: absolute;
   left: 0;
   top: 0.05em;
   color: var(--gold);
-  font-size: 0.75rem;
+  font-size: 0.7rem;
 }
 .procedures-note {
   text-align: center;
@@ -629,7 +658,8 @@ p { margin: 0; }
 @media (max-width: 960px) {
   .hero-inner { grid-template-columns: 1fr; }
   .hero-visual { order: -1; max-width: 320px; margin: 0 auto; }
-  .procedures-grid { grid-template-columns: 1fr; }
+  .proc-features { grid-template-columns: 1fr; gap: 2.2rem; }
+  .procedures-more { grid-template-columns: 1fr; gap: 2rem; }
   .about-inner { grid-template-columns: 1fr; }
   .about-photo { max-width: 480px; margin: 0 auto; }
 }
@@ -652,6 +682,8 @@ p { margin: 0; }
   .header-actions .btn-small { display: none; }
   .differentials { padding: 4rem 0 4.5rem; }
   .diff-contrast { padding: 2rem 0; }
+  .proc-feature { flex-direction: column; align-items: flex-start; text-align: left; }
+  .proc-feature-media { width: 100%; height: auto; aspect-ratio: 4 / 3; flex: none; }
 }
 
 @media (max-width: 480px) {
