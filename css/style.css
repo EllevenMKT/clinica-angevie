@@ -447,7 +447,7 @@ p { margin: 0; }
 .result-card {
   flex: 0 0 auto;
   scroll-snap-align: start;
-  width: min(560px, 84vw);
+  width: min(400px, 84vw);
   background: var(--white);
   border-radius: 8px;
   overflow: hidden;
