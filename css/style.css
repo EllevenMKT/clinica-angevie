@@ -248,7 +248,6 @@ p { margin: 0; }
   box-shadow: 0 10px 24px -14px rgba(58, 43, 38, 0.35);
   color: var(--ink);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: insta-float 3.6s ease-in-out infinite;
 }
 .hero-insta::after {
   content: "";
@@ -300,10 +299,6 @@ p { margin: 0; }
   color: var(--terracotta-deep);
   flex-shrink: 0;
 }
-@keyframes insta-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
-}
 @keyframes insta-ring {
   0% { transform: scale(1); opacity: 0.7; }
   100% { transform: scale(1.14, 1.5); opacity: 0; }
@@ -311,6 +306,17 @@ p { margin: 0; }
 @media (prefers-reduced-motion: reduce) {
   .hero-insta, .hero-insta::after { animation: none; }
 }
+.hero-insta:not(.hero-insta--sm) {
+  gap: 0.65rem;
+  padding: 0.3rem 0.95rem 0.3rem 0.3rem;
+  margin-bottom: 1.4rem;
+}
+.hero-insta:not(.hero-insta--sm) .hero-insta-avatar { flex: 0 0 36px; width: 36px; height: 36px; }
+.hero-insta:not(.hero-insta--sm) .hero-insta-text { font-size: 0.82rem; }
+.hero-insta:not(.hero-insta--sm) .hero-insta-text small { font-size: 0.6rem; }
+.hero-insta:not(.hero-insta--sm) .hero-insta-icon { width: 17px; height: 17px; }
+.hero-insta-handle { display: inline-flex; align-items: center; gap: 0.3rem; }
+.hero-insta-verified { width: 15px; height: 15px; flex-shrink: 0; }
 .hero-insta--sm {
   gap: 0.6rem;
   padding: 0.3rem 0.9rem 0.3rem 0.3rem;
@@ -321,7 +327,6 @@ p { margin: 0; }
 .hero-insta--sm .hero-insta-text { font-size: 0.8rem; }
 .hero-insta--sm .hero-insta-text small { font-size: 0.6rem; }
 .hero-insta--sm .hero-insta-icon { width: 16px; height: 16px; }
-.about-socials .hero-insta--sm:nth-child(2) { animation-delay: -1.8s; }
 .about-socials .hero-insta--sm:nth-child(2)::after { animation-delay: 1.4s; }
 .hero h1 {
   font-size: clamp(2.4rem, 4.4vw, 3.6rem);
